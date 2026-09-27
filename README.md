@@ -45,11 +45,6 @@ The map can read the tracker’s **Master** tab without Apps Script. Give the sp
 GOOGLE_SHEET_MASTER_URL=https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit?usp=sharing
 ```
 
-Restart `npm run dev` after changing `.env.local`. The server reads only Match ID, Sport, Venue, Date, Sched Start, Sched End, and Status, then serves the mapped game data at `GET /api/games`. The browser refreshes it every 15 seconds, and the server caches the Sheet for up to 5 seconds. It checks the clock in **Asia/Manila** time. A row explicitly marked `Ongoing` shows its sport icon immediately, even when its scheduled date or time differs from the current clock. Other games appear when they are upcoming later today or within today's scheduled time. If a today's game has no scheduled end, its icon stays visible after its start until the day ends or the Sheet marks it Finished, Cancelled, or Postponed. Change an ongoing row to a terminal status to remove its icon. Two different sports at one venue keep separate icons. The sport detail panel shows the game date, time, and status.
-
-The current icon set supports Soccer, Softball, Frisbee, Basketball, and Volleyball. Sheet venues `Soccer Field`, `Softball Field`, `Field (Pitch 1)`, and `Field (Pitch 2)` point to the map’s Soccer Field. Both Frisbee pitches use the supplied Frisbee GPS point for the Frisbee marker. `Covered Court` and `University Gym` point to their corresponding venues. Each game’s venue row determines the icon’s location and the venue shown in its detail panel, even when that sport normally uses another venue. Unmapped sheet sports and venues are ignored until an icon and venue mapping are added. The supplied sample tracker has no Basketball or Volleyball matches. The Track Oval remains unmapped because its location has not been confirmed.
-
-
 ## Checks
 
 ```bash
